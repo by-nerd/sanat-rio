@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanatório</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Creepster', cursive;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+
+        header {
+            padding: 20px 0;
+        }
+
+        .logo img {
+            width: 150px;
+        }
+
+        .menu-button {
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 50px;
+            margin: 20px 0;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .menu-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #000;
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+
+        .menu-button:hover::before {
+            width: 100%;
+        }
+
+        .menu-button:hover {
+            color: #fff;
+            border-color: #000;
+        }
+
+        .menu-options {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .menu-options button {
+            display: flex;
+            align-items: center;
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 50px;
+            margin: 10px 0;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .menu-options button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #000;
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+
+        .menu-options button:hover::before {
+            width: 100%;
+        }
+
+        .menu-options button:hover {
+            color: #fff;
+            border-color: #000;
+        }
+
+        .menu-options button img {
+            margin-right: 10px;
+            width: 24px;
+            height: 24px;
+        }
+
+        footer {
+            padding: 20px;
+            color: #ccc;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Estilo do music player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border: 2px solid #fff;
+        }
+
+        .music-player select,
+        .music-player button,
+        .music-player audio {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .music-player button:hover,
+        .music-player select:hover,
+        .music-player audio:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .music-player button:focus,
+        .music-player select:focus,
+        .music-player audio:focus {
+            outline: none;
+            border-color: #ff4081;
+        }
+
+        .music-player button {
+            font-weight: bold;
+        }
+
+        .music-player audio {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-sound" loop>
+        <source src="background.mp3" type="audio/mpeg">
+    </audio>
+
+    <header>
+        <div class="logo">
+            <img src="logo.gif" alt="Sanatório Logo">
+        </div>
+    </header>
+
+    <main>
+        <section id="gallery">
+            <button class="menu-button" id="menuBtn">Menu</button>
+            <div class="menu-options" id="menuOptions">
+                <button onclick="window.location.href='https://discord.gg/kaMusVRe'">
+                    <img src="icon.png" alt="Ícone Página 0"> Servidor Discord
+                </button>
+                <button onclick="window.location.href='pagina1.html'">
+                    <img src="icon.png" alt="Ícone Página 1"> Sobre
+                </button>
+                <button onclick="window.location.href='pagina2.html'">
+                    <img src="icon.png" alt="Ícone Página 2"> Contato
+                </button>
+                <button onclick="window.location.href='chat.html'">
+                    <img src="icon.png" alt="Ícone Página 3"> Chat
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sanatório. Todos os direitos reservados.</p>
+    </footer>
+
+    <div class="music-player" style="display: flex; flex-direction: column; align-items: center; padding: 20px; border: 2px solid #000; border-radius: 10px; background-color: #333;">
+    <select id="musicSelector" style="margin-bottom: 10px; padding: 5px; border-radius: 5px; background-color: #000; color: #fff;">
+        <option value="1.mp3">New Magic Wand</option>
+        <option value="2.mp3">She</option>
+        <option value="3.mp3">Hells Bells</option>
+        <option value="4.mp3">God Is</option>
+        <option value="5.mp3">Dark Red</option>
+    </select>
+    <audio id="audioPlayer" controls="" style="width: 100%;">
+        <source src="5.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('background-sound');
+            audio.play();
+
+            var menuBtn = document.getElementById('menuBtn');
+            var menuOptions = document.getElementById('menuOptions');
+
+            menuBtn.addEventListener('click', function() {
+                if (menuOptions.style.display === "none" || menuOptions.style.display === "") {
+                    menuOptions.style.display = "block";
+                } else {
+                    menuOptions.style.display = "none";
+                }
+            });
+
+            var musicSelector = document.getElementById('musicSelector');
+            var audioPlayer = document.getElementById('audioPlayer');
+
+            musicSelector.addEventListener('change', function() {
+                var selectedMusic = musicSelector.value;
+                audioPlayer.src = selectedMusic;
+                audioPlayer.play();
+            });
+        });
+
+        function playMusic() {
+            document.getElementById('audioPlayer').play();
+        }
+
+        function pauseMusic() {
+            document.getElementById('audioPlayer').pause();
+        }
+    </script>
+</body>
+</html>
